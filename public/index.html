@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Video Chat</title>
+    <script type="importmap">
+    {
+        "imports": {
+            "socket.io-client": "https://cdn.socket.io/4.5.4/socket.io.esm.min.js"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="localVideo" autoplay playsinline muted></video>
+                <div class="video-status">You</div>
+                <div class="connection-status" id="localStatus">
+                    <i class="fas fa-circle"></i> Waiting to connect...
+                </div>
+            </div>
+            <div class="video-wrapper">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <div class="video-status">Remote User</div>
+                <div class="connection-status" id="remoteStatus">
+                    <i class="fas fa-circle"></i> Waiting for peer...
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <input type="text" id="roomId" placeholder="Enter Room ID to join or create">
+            <button id="joinBtn">
+                <i class="fas fa-sign-in-alt"></i>
+                Join Room
+            </button>
+            <button id="toggleVideo">
+                <i class="fas fa-video"></i>
+                Video On
+            </button>
+            <button id="toggleAudio">
+                <i class="fas fa-microphone"></i>
+                Audio On
+            </button>
+            <button id="leaveBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Leave Room
+            </button>
+        </div>
+        
+        <div id="roomInfo"></div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>

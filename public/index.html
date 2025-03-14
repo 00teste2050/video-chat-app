@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real-Time Video Chat</title>
     <script type="importmap">
     {
@@ -24,14 +21,9 @@
                     <i class="fas fa-circle"></i> Waiting to connect...
                 </div>
             </div>
-            <div class="video-wrapper">
-                <video id="remoteVideo" autoplay playsinline></video>
-                <div class="video-status">Remote User</div>
-                <div class="connection-status" id="remoteStatus">
-                    <i class="fas fa-circle"></i> Waiting for peer...
-                </div>
-            </div>
         </div>
+        
+        <div id="remoteVideos"></div>
         
         <div class="controls">
             <input type="text" id="roomId" placeholder="Enter Room ID to join or create">
@@ -47,6 +39,10 @@
                 <i class="fas fa-microphone"></i>
                 Audio On
             </button>
+            <button id="shareScreen">
+                <i class="fas fa-desktop"></i>
+                Share Screen
+            </button>
             <button id="leaveBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 Leave Room
@@ -54,6 +50,22 @@
         </div>
         
         <div id="roomInfo"></div>
+        
+        <div class="participants-container">
+            <h3>Participants</h3>
+            <div id="participantsList" class="participants-list"></div>
+        </div>
+        
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                    Send
+                </button>
+            </div>
+        </div>
     </div>
     
     <script type="module" src="app.js"></script>

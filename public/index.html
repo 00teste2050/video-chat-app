@@ -1,7 +1,6 @@
 <html>
 <head>
-    <title>Video Chat</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Video Chat</title>
     <script type="importmap">
     {
         "imports": {
@@ -14,55 +13,57 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="controls">
-                <input type="text" id="roomId" placeholder="Enter Room ID">
-                <button id="joinBtn">
-                    <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
-            <div id="roomInfo"></div>
-            <div class="participants-container">
-                <h3>Participants</h3>
-                <div id="participantsList" class="participants-list"></div>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="localVideo" autoplay playsinline muted></video>
+                <div class="video-status">You</div>
+                <div class="connection-status" id="localStatus">
+                    <i class="fas fa-circle"></i> Waiting to connect...
+                </div>
             </div>
         </div>
         
-        <div class="main-content">
-            <div class="video-container">
-                <div class="video-wrapper local-video">
-                    <video id="localVideo" autoplay playsinline muted></video>
-                    <div class="video-status">You</div>
-                    <div class="connection-status" id="localStatus">
-                        <i class="fas fa-circle"></i> Waiting...
-                    </div>
-                </div>
-                <div id="remoteVideos"></div>
-            </div>
-            
-            <div class="controls bottom-controls">
-                <button id="toggleVideo">
-                    <i class="fas fa-video"></i>
+        <div id="remoteVideos"></div>
+        
+        <div class="controls">
+            <input type="text" id="roomId" placeholder="Enter Room ID to join or create">
+            <button id="joinBtn">
+                <i class="fas fa-sign-in-alt"></i>
+                Join Room
+            </button>
+            <button id="toggleVideo">
+                <i class="fas fa-video"></i>
+                Video On
+            </button>
+            <button id="toggleAudio">
+                <i class="fas fa-microphone"></i>
+                Audio On
+            </button>
+            <button id="shareScreen">
+                <i class="fas fa-desktop"></i>
+                Share Screen
+            </button>
+            <button id="leaveBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Leave Room
+            </button>
+        </div>
+        
+        <div id="roomInfo"></div>
+        
+        <div class="participants-container">
+            <h3>Participants</h3>
+            <div id="participantsList" class="participants-list"></div>
+        </div>
+        
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                    Send
                 </button>
-                <button id="toggleAudio">
-                    <i class="fas fa-microphone"></i>
-                </button>
-                <button id="shareScreen">
-                    <i class="fas fa-desktop"></i>
-                </button>
-                <button id="leaveBtn">
-                    <i class="fas fa-phone-slash"></i>
-                </button>
-            </div>
-            
-            <div class="chat-container">
-                <div id="chatMessages" class="chat-messages"></div>
-                <div class="chat-input-container">
-                    <input type="text" id="chatInput" placeholder="Type a message">
-                    <button id="sendMessage">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </div>
